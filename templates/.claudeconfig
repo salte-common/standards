@@ -1,0 +1,21 @@
+analysis:
+  standards_document: ".standards/development-standards/development-standards.md"
+  language_specific_standards: ".standards/development-standards/language-specific/"
+
+  exclude_patterns:
+    - "node_modules/*"
+    - "venv/*"
+    - "__pycache__/*"
+    - "vendor/*"
+    - "dist/*"
+    - "build/*"
+    - "generated/*"
+    - "*.min.*"
+    - "*.generated.*"
+
+  default_instruction: |
+    Analyze this codebase according to:
+    1. Core development standards in the referenced document
+    2. Language-specific standards from the language_specific_standards directory
+    Focus on security vulnerabilities first, then code quality issues.
+    Provide detailed reports following the structure outlined in the standards documents.
