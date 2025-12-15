@@ -19,7 +19,7 @@ This document outlines deployment standards for applications following the [Twel
 - **Zero Downtime**: Deployments should not cause service interruption
 
 ### 3. Environment Parity
-- **Identical Environments**: Development, staging, and production should be as similar as possible
+- **Identical Environments**: Development, QA, and production should be as similar as possible
 - **Configuration Management**: Use environment variables for all configuration
 - **Dependency Consistency**: Use the same backing services across environments
 
@@ -48,7 +48,7 @@ This document outlines deployment standards for applications following the [Twel
 # Release stage requirements
 - Combine build artifacts with configuration
 - Create immutable release artifacts
-- Tag releases with semantic versions
+- Tag releases with version tags (semantic or date-based per project convention)
 - Store artifacts in secure registry
 - Generate deployment documentation
 ```
@@ -640,7 +640,8 @@ deploy-backend:
 ```
 
 #### Package Version Management
-- **Semantic Versioning**: Use semantic versioning for all packages
+- **Semantic Versioning**: Use semantic versioning for all packages (package.json, package versions)
+- **Git Tag Versioning**: Git tag versioning follows the project's chosen convention (semantic or date-based) as specified in [Git Workflow Standards](./../workflow-standards/git-workflow-standards.md)
 - **Dependency Pinning**: Pin dependency versions for reproducible builds
 - **Security Updates**: Regular security updates for all dependencies (see [Security Standards](./../security-standards/security-standards.md))
 - **Compatibility Testing**: Test package compatibility before deployment

@@ -297,7 +297,7 @@ const alertingRules = {
 
 ### Availability Targets
 - **Production**: 99.9% uptime (8.76 hours downtime per year)
-- **Staging**: 99% uptime (87.6 hours downtime per year)
+- **QA**: 99% uptime (87.6 hours downtime per year)
 - **Development**: 95% uptime (438 hours downtime per year)
 
 ### Scalability Standards
@@ -377,7 +377,7 @@ const disasterRecoveryChecklist = {
 ### Change Management
 - **Change Approval**: All production changes require approval
 - **Rollback Plan**: Every change must have a rollback plan
-- **Testing**: Changes must be tested in staging environment
+- **Testing**: Changes must be tested in QA environment
 - **Monitoring**: Monitor changes in production for 24 hours
 
 ### Capacity Planning

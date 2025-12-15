@@ -97,6 +97,18 @@ Modern integration standards covering:
 - **Multi-Transport Support**: JSON-RPC, gRPC, HTTP+JSON protocols
 - **Integration Security**: Protocol-specific authentication and authorization
 
+### [Git Workflow Standards](./workflow-standards/git-workflow-standards.md)
+Development workflow and release process standards including:
+- **Branch Strategy**: Persistent and transient branch management
+- **Tagging Conventions**: Semantic versioning and date-based versioning options
+- **Workflow Triggers**: Branch-based validation and tag-based deployments
+- **Environment Strategy**: Preview, development, QA, and production environments
+- **Release Process**: Standard release flow from feature to production
+- **Hotfix Process**: Emergency production fix procedures
+- **Terraform Workspace Management**: Infrastructure state isolation
+- **Resource Naming Standards**: Consistent resource naming across environments
+- **ServiceNow Integration**: Change management and audit compliance
+
 ## Twelve-Factor App Coverage
 
 All standards documents are designed to support the [Twelve-Factor App methodology](https://12factor.net/):
@@ -123,12 +135,13 @@ All standards documents are designed to support the [Twelve-Factor App methodolo
 2. **Review Platform-Specific Standards**: Apply AWS or other platform-specific guidelines
 3. **Review Development Standards**: Follow code quality and security guidelines
 4. **Check Language-Specific Standards**: Apply language-specific best practices
-5. **Follow Deployment Standards**: Ensure proper deployment practices
-6. **Implement Operations Standards**: Set up monitoring and operational procedures
-7. **Apply Security Standards**: Implement comprehensive security measures
-8. **Follow Data Standards**: Ensure proper data management and governance
-9. **Create Documentation**: Follow documentation standards for all projects
-10. **Implement Integration Standards**: Support A2A and MCP protocols
+5. **Follow Git Workflow Standards**: Implement branch strategy, tagging, and release processes
+6. **Follow Deployment Standards**: Ensure proper deployment practices
+7. **Implement Operations Standards**: Set up monitoring and operational procedures
+8. **Apply Security Standards**: Implement comprehensive security measures
+9. **Follow Data Standards**: Ensure proper data management and governance
+10. **Create Documentation**: Follow documentation standards for all projects
+11. **Implement Integration Standards**: Support A2A and MCP protocols
 
 ### For AI Agents (Claude Code)
 1. **Interface Contracts**: Always implement defined interfaces
@@ -138,16 +151,17 @@ All standards documents are designed to support the [Twelve-Factor App methodolo
 5. **Validation**: Verify implementations match specifications
 6. **Security**: Follow OWASP Top 10 guidelines
 7. **Twelve-Factor Compliance**: Ensure all 12 factors are addressed
-8. **Protocol Compliance**: Implement A2A and MCP protocols as required
-9. **Package Organization**: Create separate deployable packages
-10. **Integration Standards**: Follow API-led connectivity patterns
+8. **Workflow Compliance**: Follow Git workflow standards for branches, tags, and releases
+9. **Protocol Compliance**: Implement A2A and MCP protocols as required
+10. **Package Organization**: Create separate deployable packages
+11. **Integration Standards**: Follow API-led connectivity patterns
 
 ## Implementation Checklist
 
 ### New Project Setup
 - [ ] Review all standards documents
 - [ ] Set up development environment
-- [ ] Configure version control
+- [ ] Configure version control and Git workflow
 - [ ] Implement CI/CD pipeline
 - [ ] Set up monitoring and logging
 - [ ] Configure security measures

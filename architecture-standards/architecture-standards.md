@@ -159,7 +159,7 @@ describe('ComponentName', () => {
 ### Environment Strategy
 - **Development**: Individual developer environments
 - **Testing**: Shared integration environment
-- **Staging**: Production-like environment
+- **QA**: Quality assurance and production-like environment
 - **Production**: Live user environment
 
 ## Monitoring and Observability
@@ -248,8 +248,8 @@ This section ensures our architecture standards align with the [Twelve-Factor Ap
 
 #### Codebase Management
 - **Single Source of Truth**: Maintain one codebase per application in version control
-- **Branch Strategy**: Use feature branches with clear merge policies
-- **Deployment Variants**: Same codebase deployed to development, staging, and production
+- **Branch Strategy**: Use feature branches with clear merge policies (see [Git Workflow Standards](./../workflow-standards/git-workflow-standards.md))
+- **Deployment Variants**: Same codebase deployed to development, QA, and production
 - **Environment-Specific Config**: Use configuration management, not code branches, for environment differences
 
 #### Implementation Guidelines
@@ -318,7 +318,7 @@ requiredConfig.forEach(key => {
 
 #### Environment-Specific Configuration
 - **Development**: Local environment variables or .env files (not committed)
-- **Staging**: Environment variables in staging environment
+- **QA**: Environment variables in QA environment
 - **Production**: Secure environment variables or secret management system
 
 ### Factor IV: Backing Services - Treat backing services as attached resources
@@ -468,7 +468,7 @@ process.on('SIGTERM', () => gracefulShutdown('SIGTERM'));
 process.on('SIGINT', () => gracefulShutdown('SIGINT'));
 ```
 
-### Factor X: Dev/Prod Parity - Keep development, staging, and production as similar as possible
+### Factor X: Dev/Prod Parity - Keep development, QA, and production as similar as possible
 
 #### Environment Consistency
 - **Same Codebase**: Use identical code across all environments

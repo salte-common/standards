@@ -133,7 +133,7 @@ npm run dev
 - **Rate Limiting**: Document any rate limiting policies and headers
 - **Validation**: Include proper validation rules and constraints
 - **Pagination**: Document pagination parameters and response structure
-- **Server Environments**: Define multiple server environments (dev, staging, prod)
+- **Server Environments**: Define multiple server environments (dev, qa, prod)
 
 ### API Documentation Structure
 ```yaml
@@ -153,8 +153,8 @@ info:
 servers:
   - url: https://api.example.com/v1
     description: Production server
-  - url: https://staging-api.example.com/v1
-    description: Staging server
+  - url: https://qa-api.example.com/v1
+    description: QA server
   - url: http://localhost:3000/v1
     description: Local development server
 
@@ -555,7 +555,7 @@ resource "aws_lambda_function" "auth_handler" {
    - Configuration backup
    - Current deployment snapshot
 
-2. **Deploy to Staging**
+2. **Deploy to QA**
    - Run deployment script
    - Execute health checks
    - Validate functionality

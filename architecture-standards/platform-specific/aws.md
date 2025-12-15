@@ -317,7 +317,7 @@ variable "service_name" {
 }
 
 variable "environment" {
-  description = "Environment (dev, staging, prod)"
+  description = "Environment (dev, qa, prod)"
   type        = string
 }
 
@@ -431,7 +431,7 @@ variable "application_name" {
 }
 
 variable "environment" {
-  description = "Environment (dev, staging, prod)"
+  description = "Environment (dev, qa, prod)"
   type        = string
 }
 ```
@@ -634,7 +634,7 @@ variable "application_name" {
 }
 
 variable "environment" {
-  description = "Environment (dev, staging, prod)"
+  description = "Environment (dev, qa, prod)"
   type        = string
 }
 
@@ -729,7 +729,7 @@ variable "application_name" {
 }
 
 variable "environment" {
-  description = "Environment (dev, staging, prod)"
+  description = "Environment (dev, qa, prod)"
   type        = string
 }
 ```
@@ -978,7 +978,7 @@ variable "application_name" {
 }
 
 variable "environment" {
-  description = "Environment (dev, staging, prod)"
+  description = "Environment (dev, qa, prod)"
   type        = string
 }
 
@@ -1081,7 +1081,7 @@ variable "application_name" {
 }
 
 variable "environment" {
-  description = "Environment (dev, staging, prod)"
+  description = "Environment (dev, qa, prod)"
   type        = string
 }
 ```
