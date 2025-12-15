@@ -445,6 +445,30 @@ variable "environment" {
 - **Temporary Credentials**: Use temporary credentials when possible
 - **Access Reviews**: Regular access reviews and cleanup
 
+#### GitHub Actions Runner Authentication
+
+> **Note**: For GitHub Actions workflow standards and Terraform deployment workflows, see [Git Workflow Standards](./../workflow-standards/git-workflow-standards.md).
+
+Self-hosted GitHub Actions runners use IAM role-based authentication for Terraform deployments:
+
+- **Runner Configuration**: Each developer grouping (team) deploys self-hosted runners aligned with their GitHub repositories
+- **IAM Roles**: Runners are configured with IAM roles scoped to team and environment needs
+- **Automatic Credentials**: IAM roles automatically provide temporary credentials via the AWS metadata service (EC2 instance profiles or equivalent)
+- **Environment-Scoped Roles**: Roles are configured per environment context (development, QA, production) to enforce least privilege
+- **Credential Chain**: Terraform uses the default AWS credential chain, automatically obtaining credentials from the runner's IAM role
+
+**Role Requirements:**
+- Roles must have permissions appropriate for the team's use cases and target environment
+- Roles should be scoped to specific AWS accounts per environment
+- Roles must include permissions for Terraform state management (S3 bucket access, DynamoDB table access)
+- Roles should follow least privilege principles with minimal required permissions
+
+**Security Considerations:**
+- No long-lived access keys required
+- Credentials rotate automatically
+- All Terraform operations are auditable via CloudTrail
+- Roles can be restricted by IP/subnet if runners are deployed in private subnets
+
 ### Network Security
 - **VPC Configuration**: Deploy all compute resources to private subnets
 - **Internet Exposure**: Only API Gateway, CloudFront, and Application Load Balancers should be internet-facing
@@ -814,6 +838,8 @@ data "aws_caller_identity" "current" {}
 - **CDK**: Consider AWS CDK for complex infrastructure
 - **Version Control**: Store infrastructure code in version control
 - **Environment Parity**: Maintain consistency across environments
+
+> **Note**: For Terraform deployment workflows, workspace management, and AWS authentication configuration, see [Git Workflow Standards](./../workflow-standards/git-workflow-standards.md).
 
 ### CI/CD Pipeline
 - **CodePipeline**: Use AWS CodePipeline for deployment automation

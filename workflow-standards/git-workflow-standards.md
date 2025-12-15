@@ -812,6 +812,50 @@ terraform {
 }
 ```
 
+### AWS Authentication for Terraform
+
+> **Note**: For comprehensive AWS authentication and IAM role standards, see [AWS Architecture Standards](./../architecture-standards/platform-specific/aws.md).
+
+#### Self-Hosted GitHub Actions Runners
+
+Terraform deployments to AWS from GitHub Actions use self-hosted runners with IAM role-based authentication:
+
+- **Runner Deployment**: Each developer grouping (team) deploys self-hosted GitHub Actions runners aligned with their GitHub repositories
+- **IAM Role-Based Authentication**: Runners are configured with IAM roles appropriate for their team and use cases
+- **Automatic Credential Provisioning**: IAM roles automatically provide temporary credentials via the AWS metadata service
+- **Environment-Scoped Roles**: Roles are scoped by team and environment context (development, QA, production)
+- **No Explicit Credentials Required**: Terraform uses the default AWS credential chain, automatically picking up credentials from the runner's IAM role
+
+#### Terraform Provider Configuration
+
+With self-hosted runners using IAM roles, Terraform requires no explicit provider credentials:
+
+```hcl
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
+  }
+}
+
+# No explicit credentials needed - uses default credential chain
+# Credentials are automatically provided by runner's IAM role
+provider "aws" {
+  region = var.aws_region
+  # Credentials automatically obtained from runner's IAM role
+}
+```
+
+#### Security Benefits
+
+This approach aligns with security standards:
+- **Temporary Credentials**: IAM roles provide temporary credentials that rotate automatically
+- **No Long-Lived Secrets**: No access keys stored in GitHub secrets or configuration files
+- **Principle of Least Privilege**: Roles can be scoped precisely to team and environment needs
+- **Audit Trail**: All Terraform operations are traceable to the IAM role and runner
+
 ## Resource Naming Standards
 
 > **Note**: For AWS-specific architecture and resource standards, see [AWS Architecture Standards](./../architecture-standards/platform-specific/aws.md).
