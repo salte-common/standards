@@ -1,0 +1,13 @@
+---
+description: Remote standards preflight
+alwaysApply: true
+---
+
+# Remote Standards Preflight
+
+- Remote standards repo: https://github.com/salte-common/standards
+- Before any changes, recursively read all standards in the remote repo.
+- Determine applicable standards based on the application type.
+- If local standards exist, they override remote standards.
+- Validate all output against the applicable standards.
+- If remote access is unavailable, state it and request a local copy or snapshot.

@@ -109,6 +109,24 @@ Development workflow and release process standards including:
 - **Resource Naming Standards**: Consistent resource naming across environments
 - **ServiceNow Integration**: Change management and audit compliance
 
+## AI IDE Rule Examples
+
+This repository includes copy-ready example rule files for AI-enabled IDEs. Use them to instruct your IDE to load and apply these standards before generating code. Example files live under `templates/ai-rules/` and are meant to be copied into your project.
+
+Intended behavior:
+- Preflight: recursively read these standards before changes
+- Apply relevant standards based on the application type
+- Validate outputs against those standards
+- Local project standards override remote standards
+
+| IDE/Tool | Example file in this repo | Destination path in your project | Notes |
+| --- | --- | --- | --- |
+| Cursor | `templates/ai-rules/cursor/.cursor/rules/standards-bootstrap.mdc` | `.cursor/rules/standards-bootstrap.mdc` | Always-apply rule file |
+| Claude Code | `templates/ai-rules/claude/CLAUDE.md` | `CLAUDE.md` | Claude Code reads this file when present |
+| GitHub Copilot | `templates/ai-rules/github/.github/copilot-instructions.md` | `.github/copilot-instructions.md` | Copilot instructions file |
+| Generic (AGENTS) | `templates/ai-rules/generic/AGENTS.md` | `AGENTS.md` | Common format for multiple tools |
+| Windsurf | `templates/ai-rules/generic/AGENTS.md` | `AGENTS.md` | Use the generic agent guidance |
+
 ## Twelve-Factor App Coverage
 
 All standards documents are designed to support the [Twelve-Factor App methodology](https://12factor.net/):
